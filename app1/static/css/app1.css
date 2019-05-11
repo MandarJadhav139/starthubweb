@@ -1,0 +1,24 @@
+#authors .card:hover {
+  background: #3292a6;
+  color: #fff;
+}
+#particles-js {
+  background-image: url("../../media/images.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.body {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+#listpage {
+  background-image: url("../../media/images13.jpeg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+#detailpage {
+  background-image: url("../../media/images17.jpeg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}

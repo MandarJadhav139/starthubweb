@@ -1,0 +1,11 @@
+{% extends 'base.html' %} {% block body-block %}
+<div class="container">
+  <div class="jumbotron">
+    <form method="POST" action="{% url 'app1:login' %}">
+      {% csrf_token %} {{ form.as_p }}
+      <button class="btn btn-success">SUBMIT</button>
+    </form>
+  </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,80 @@
+{% extends 'base.html' %} {% block body-block %}
+<div class="container bg-dark text-light border border-success rounded">
+  <div class="d-flex flex-column">
+    <div class="p-4">
+      <div class="d-flex flex-row justify-content-around">
+        <img
+          class="w-25 h-50 border border-info rounded-circle "
+          src="{{ startup.logo.url }}"
+          alt="no logo"
+        />
+        <h2 class="align-self-center">{{ startup.name }}</h2>
+        <div class="align-self-center">
+          <a href="{{ startup.site }}">{{ startup.site }}</a>
+        </div>
+      </div>
+    </div>
+    <div class="p-4">
+      <div class="d-flex flex-row justify-content-around">
+        <a href="{% url 'app1:form'%}" class="btn btn-info btn-lg"
+          >apply for internship</a
+        >
+        <a href="{% url 'app1:form'%}" class="btn btn-success btn-lg"
+          >apply for job</a
+        >
+        <a href="#" class="btn btn-warning btn-lg">Invest</a>
+      </div>
+    </div>
+
+    <div class="text-center p-4">
+      <h4>Net-worth</h4>
+      <p>
+        {{ startup.networth }}
+      </p>
+    </div>
+    <div class="text-center p-4">
+      <!-- <div class="card-columns"> -->
+      <!-- {% for founder in startup.co_founders.all %} -->
+
+      <div class="card">
+        <div class="card-body">
+          <img
+            src="{{ startup.co_founders.profilepic.url }}"
+            alt="no image"
+            class="img-fluid rounded-circle w-50"
+          />
+          <h3 class="pt-4">{{ startup.co_founders.name }}</h3>
+          <h5 class="text-muted">{{ startup.co_founders.post }}</h5>
+
+          <p>{{ startup.co_founders.email }}</p>
+        </div>
+      </div>
+
+      <!-- {% endfor %} -->
+      <!-- </div> -->
+    </div>
+    <div class="text-center p-4">
+      <!-- <div class="card-columns"> -->
+      <!-- {% for investor in startup.investors.all %} -->
+
+      <div class="card">
+        <div class="card-body">
+          <img
+            src="{{ startup.investors.profilepic.url }}"
+            alt=""
+            class="img-fluid rounded-circle w-50"
+          />
+          <h3 class="pt-4">{{ startup.investors.name }}</h3>
+
+          <h4>Investment : {{ startup.investors.investment }}</h4>
+          <p>{{ startup.investors.email }}</p>
+        </div>
+      </div>
+
+      <!-- {% endfor %} -->
+      <!-- </div> -->
+    </div>
+  </div>
+</div>
+
+{% endblock %}

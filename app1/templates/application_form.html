@@ -1,0 +1,65 @@
+{% extends 'base.html' %} {% block body-block %}
+<section class="bg-light py-5">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6 mx-auto">
+        <div class="card">
+          <div class="card-header bg-info text-white">
+            <h4>Fill The Form</h4>
+          </div>
+          <div class="card-body">
+            <form method="POST" action="{% url 'app1:form' %}">
+              {% csrf_token %}
+              <div class="form-group">
+                <label for="name">Username</label>
+                <input
+                  type="text"
+                  name="name"
+                  class="form-control"
+                  value="{{ user.username }}"
+                  readonly
+                />
+              </div>
+              <div class="form-group">
+                <label for="email">Email</label>
+                <input
+                  type="email"
+                  name="email"
+                  class="form-control"
+                  value="{{ user.email }}"
+                  readonly
+                />
+              </div>
+              <div class="form-group">
+                <label for="github">Github</label>
+                <input
+                  type="text"
+                  name="github"
+                  class="form-control"
+                  required
+                />
+              </div>
+              <div class="form-group">
+                <label for="resume">Resume</label>
+                <input
+                  type="file"
+                  name="resume"
+                  class="form-control"
+                  required
+                />
+              </div>
+
+              <input
+                type="submit"
+                value="Register"
+                class="btn btn-info btn-block"
+              />
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% endblock %}

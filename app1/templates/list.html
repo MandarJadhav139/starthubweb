@@ -1,0 +1,57 @@
+{% extends 'base.html' %} {% block search %}
+<form
+  class="form-inline ml-auto"
+  method="POST"
+  action="{% url 'app1:search' %}"
+>
+  {% csrf_token %}
+  <input
+    type="text"
+    id="searchbox"
+    name="searchbox"
+    class="form-control mr-2"
+    placeholder="Search Domain"
+  />
+  <button class="btn btn-outline-success">Search</button>
+</form>
+{% endblock %} {% block body-block %}
+<div id="listpage" class="my-0 border-top border-bottom border-success">
+  <div class="container mt-4 mb-3">
+    <!-- alerts -->
+    {% include 'alerts.html' %}
+    <div class="card-columns">
+      {% for startup in object_list %}
+
+      <div class="card border-info">
+        <!-- it is necessary to check if that attribute has a value ,because blank =
+        true in case of logo  -->
+        {% if startup.logo %}
+        <img
+          class="card-img-top img-fluid "
+          src="{{ startup.logo.url }}"
+          alt="no image"
+          style="height: 15em;"
+        />
+        {% endif %}
+
+        <div class="card-body card-footer">
+          <h3 class="card-title">{{ startup.name }}</h3>
+          <p class="card-text text-muted">
+            Domain:{{ startup.domain }} Location:{{ startup.location }}
+          </p>
+          <a
+            class="btn btn-primary"
+            href="{% url 'app1:detail' slug=startup.slug %}"
+          >
+            View
+          </a>
+        </div>
+      </div>
+
+      {% empty %}
+      <h4>no startups added to the list</h4>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+{% endblock %}

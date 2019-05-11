@@ -1,0 +1,37 @@
+{% extends 'base.html' %} {% block body-block %}
+<div class="container">
+  <div class="card-columns">
+    {% for startup in object_list %}
+
+    <div class="card border-info">
+      <!-- it is necessary to check if that attribute has a value ,because blank =
+        true in case of logo  -->
+      {% if startup.logo %}
+      <img
+        class="card-img-top img-fluid"
+        src="{{ startup.logo.url }}"
+        alt="no image"
+      />
+      {% endif %}
+
+      <div class="card-body card-footer">
+        <h3 class="card-title">{{ startup.name }}</h3>
+        <p class="card-text">
+          Domain:{{ startup.domain }} Location:{{ startup.location }}
+        </p>
+        <a
+          class="btn btn-primary"
+          href="{% url 'app1:detail' slug=startup.slug %}"
+        >
+          View
+        </a>
+      </div>
+    </div>
+
+    {% empty %}
+    <h4>no startups added to the list</h4>
+    {% endfor %}
+  </div>
+</div>
+
+{% endblock %}

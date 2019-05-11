@@ -1,0 +1,17 @@
+{% extends 'base.html' %} {% block body-block %}
+<div class="container">
+  <div class="jumbotron">
+    <h3 class="pb-3">Fill The Form</h3>
+    <form
+      method="POST"
+      enctype="multipart/form-data"
+      action="{% url 'app1:form'%}"
+    >
+      <!-- enctype="multipart/form-data" required for imagefield in form -->
+      {% csrf_token %}
+      {{ form.as_p }}
+      <button class="btn btn-primary">Submit</button>
+    </form>
+  </div>
+</div>
+{% endblock %}
