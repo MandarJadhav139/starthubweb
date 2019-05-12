@@ -1,7 +1,13 @@
-#authors .card:hover {
-  background: #3292a6;
-  color: #fff;
+#cardhover:hover {
+  opacity: 0.8;
 }
+#cardhover a {
+  visibility: hidden;
+}
+#cardhover:hover a {
+  visibility: visible;
+}
+
 #particles-js {
   background-image: url("../../media/images.jpg");
   background-repeat: no-repeat;

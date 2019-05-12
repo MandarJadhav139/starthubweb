@@ -22,7 +22,14 @@
     <div class="card-columns">
       {% for startup in object_list %}
 
-      <div class="card border-info">
+      <div class="card border-info" id="cardhover">
+        <a
+          class="btn btn-outline-primary btn-lg"
+          href="{% url 'app1:detail' slug=startup.slug %}"
+          style="position:absolute;top:12em;left:7em;"
+        >
+          See more
+        </a>
         <!-- it is necessary to check if that attribute has a value ,because blank =
         true in case of logo  -->
         {% if startup.logo %}
@@ -39,12 +46,12 @@
           <p class="card-text text-muted">
             Domain:{{ startup.domain }} Location:{{ startup.location }}
           </p>
-          <a
+          <!-- <a
             class="btn btn-primary"
             href="{% url 'app1:detail' slug=startup.slug %}"
           >
             View
-          </a>
+          </a> -->
         </div>
       </div>
 
